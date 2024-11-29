@@ -2,13 +2,15 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-    padding: 150px;
+    padding: 20px; /* Smaller padding for smaller screens */
 }
 
 .resume-container {
     display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
     background-color: white;
-    width: 80%;
+    width: 90%; /* Adjust width */
+    max-width: 1200px; /* Limit the max width */
     margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -19,31 +21,33 @@ body {
     background-color: #2c2c2c;
     color: white;
     padding: 20px;
-    width: 35%;
+    width: 100%; /* Full width on smaller screens */
+    max-width: 350px; /* Limit the size on larger screens */
     text-align: center;
     border-right: 5px solid #e63946;
+    box-sizing: border-box;
 }
 
 .profile-picture {
-    width: 150px;
-    height: 150px;
-    margin-top: 10%;
+    width: 100px; /* Smaller profile picture for smaller screens */
+    height: 100px;
+    margin-top: 20px;
     border-radius: 50%;
     border: 5px solid #e63946;
     margin-bottom: 20px;
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 22px;
     margin: 10px 0;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
 h3 {
     font-size: 18px;
-    padding: 2%;
-    margin: 20px 0 10px;
+    padding: 10px;
+    margin: 20px 0;
     color: rgb(46, 7, 7);
     border-radius: 10px;
     box-shadow: 0 0 15px #e91b2c;
@@ -52,8 +56,8 @@ h3 {
 }
 
 ul {
-    list-style-type: fill round;
-    padding: 10;
+    list-style-type: none;
+    padding: 0;
     margin: 10px 0;
 }
 
@@ -64,7 +68,8 @@ ul li {
 /* Right Section Styling */
 .right-section {
     padding: 20px;
-    width: 65%;
+    width: 100%; /* Full width on smaller screens */
+    box-sizing: border-box;
 }
 
 button {
@@ -73,9 +78,43 @@ button {
     box-shadow: 0 0 15px black;
     cursor: pointer;
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 16px;
+    padding: 10px 20px;
 }
 
 button:hover {
     background-color: #ff737c;
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 768px) {
+    .resume-container {
+        flex-wrap: nowrap; /* Prevent wrapping on larger screens */
+    }
+    .left-section {
+        width: 35%; /* Original width for larger screens */
+    }
+    .right-section {
+        width: 65%; /* Original width for larger screens */
+    }
+}
+
+@media (max-width: 767px) {
+    .resume-container {
+        flex-direction: column; /* Stack sections vertically */
+    }
+    .left-section {
+        border-right: none; /* Remove border on smaller screens */
+        border-bottom: 5px solid #e63946; /* Add bottom border instead */
+    }
+    .profile-picture {
+        width: 80px; /* Smaller profile picture */
+        height: 80px;
+    }
+    h1 {
+        font-size: 20px;
+    }
+    button {
+        font-size: 14px; /* Smaller button size */
+    }
 }
